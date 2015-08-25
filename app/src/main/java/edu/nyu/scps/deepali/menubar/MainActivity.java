@@ -1,33 +1,31 @@
 package edu.nyu.scps.deepali.menubar;
 
+import android.animation.Animator;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.codetail.animation.SupportAnimator;
-import io.codetail.animation.ViewAnimationUtils;
+import edu.nyu.scps.deepali.menubar.fragment.ContentFragment;
 import yalantis.com.sidemenu.interfaces.Resourceble;
 import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
-import yalantis.com.sidemenu.sample.fragment.ContentFragment;
 import yalantis.com.sidemenu.util.ViewAnimator;
 
-public class MainActivity extends AppCompatActivity implements ViewAnimator.ViewAnimatorListener {private DrawerLayout drawerLayout;
+public class MainActivity extends ActionBarActivity implements ViewAnimator.ViewAnimatorListener {private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private List<SlideMenuItem> list = new ArrayList<>();
     private ContentFragment contentFragment;
@@ -69,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         list.add(menuItem2);
         SlideMenuItem menuItem3 = new SlideMenuItem(ContentFragment.MAPS, R.drawable.mapicon);
         list.add(menuItem3);
+        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.VOICE, R.drawable.voicesearch);
+        list.add(menuItem4);
+        SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.HELP, R.drawable.help);
+        list.add(menuItem5);
 
         }
 
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         this.res = this.res == R.drawable.map2 ? R.drawable.map2 : R.drawable.map2;
         View view = findViewById(R.id.content_frame);
         int finalRadius = Math.max(view.getWidth(), view.getHeight());
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0, finalRadius);
+        Animator animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0, finalRadius);
         animator.setInterpolator(new AccelerateInterpolator());
         animator.setDuration(ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION);
 

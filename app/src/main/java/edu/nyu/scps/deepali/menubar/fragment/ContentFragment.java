@@ -21,6 +21,8 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     public static final String SAVE = "Save";
     public static final String SEARCH = "Search";
     public static final String MAPS = "Maps";
+    public static final String VOICE = "voicesearch";
+    public static final String HELP = "Help";
 
 
     private View containerView;
@@ -40,7 +42,7 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.containerView = view.findViewById(R.id.container);
+        this.containerView = view.findViewById(edu.nyu.scps.deepali.menubar.R.id.container);
     }
 
     @Override
@@ -52,8 +54,8 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        mImageView = (ImageView) rootView.findViewById(R.id.image_content);
+        View rootView = inflater.inflate(edu.nyu.scps.deepali.menubar.R.layout.fragment_main, container, false);
+        mImageView = (ImageView) rootView.findViewById(edu.nyu.scps.deepali.menubar.R.id.image_content);
         mImageView.setClickable(true);
         mImageView.setFocusable(true);
         mImageView.setImageResource(res);
